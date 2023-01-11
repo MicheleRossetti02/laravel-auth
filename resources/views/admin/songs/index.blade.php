@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h1>Songs</h1>
-<a name="" id="" class="btn btn-primary position-fixed bottom-0 end-0 m-3" href="{{route('admin.songs.create')}}" role="button">New Song
+<a name="" id="" class="btn btn-primary position-fixed bottom-0 end-0 " href="{{route('admin.songs.create')}}" role="button">New Song
     <i class="fa fa-plus-circle" aria-hidden="true"></i>
 </a>
 @include('partials.message')
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                                        <form action="{{route('admin.songs.destroy', $song->id)}}" method="POST">
+                                        <form action="{{route('admin.songs.destroy', $song->slug)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
 

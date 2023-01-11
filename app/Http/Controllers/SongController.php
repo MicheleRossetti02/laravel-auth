@@ -55,6 +55,7 @@ class SongController extends Controller
         $val_data['slug'] = $song_slug;
         //add song
         // dd($val_data);
+
         Song::create($val_data);
         //redirect
         return to_route('admin.songs.index')->with('message', 'You add a great Song!');
@@ -91,7 +92,22 @@ class SongController extends Controller
      */
     public function update(UpdateSongRequest $request, Song $song)
     {
+        // dd($request->all());
+        //validazione dati
         $val_data = $request->validated();
+        // dd($val_data);
+
+        //generate song slug
+        // $song_slug = Str::slug($val_data['title']);
+        // dd($song_slug);
+
+        $song_slug = Song::generateSlag($val_data['title']);
+        // dd($song_slug);
+        $val_data['slug'] = $song_slug;
+        //add song
+        // dd($val_data);
+
+
         $song->update($val_data);
         return to_route('admin.songs.index')->with('message', 'You edit a great Song!');
     }
