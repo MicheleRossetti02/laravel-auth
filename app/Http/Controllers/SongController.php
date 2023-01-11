@@ -104,6 +104,7 @@ class SongController extends Controller
      */
     public function destroy(Song $song)
     {
-        //
+        $song->delete();
+        return to_route('admin.songs.index')->with('message', "you just delete this beautiful song successefully: $song->title");
     }
 }

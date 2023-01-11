@@ -40,7 +40,44 @@
                         <i class="fas fa-pencil fa-sm fa-fw"></i>
                     </a>
                     <!-- delete -->
-                    <i class="fas fa-trash fa-sm fa-fw"></i>
+                    <!-- <a href="{{route('admin.songs.destroy', $song->slug)}}">
+                         @method('DELETE')
+                        <i class="fas fa-trash fa-sm fa-fw"></i>
+
+                    </a>  -->
+
+                    <form action="{{route('admin.songs.destroy',$song->slug)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+
+
+
+                        <!-- Modal trigger button -->
+                        <a href="{{route('admin.songs.destroy', $song->slug)}}" type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalId">
+                            <i class="fa-solid fa-trash fa-sm fa-fw"></i>
+                        </a>
+
+                        <!-- Modal Body -->
+                        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+                        <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalTitleId">Delete form</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to delete this beauty song permanently?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Confirm</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
 
                 </td>
 
