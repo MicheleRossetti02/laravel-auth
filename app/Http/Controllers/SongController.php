@@ -68,7 +68,7 @@ class SongController extends Controller
      */
     public function show(Song $song)
     {
-        //
+        return view('admin.songs.show', compact('song'));
     }
 
     /**

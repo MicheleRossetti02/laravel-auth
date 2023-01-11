@@ -31,7 +31,9 @@
                 <td>{{$song->artist}}</td>
                 <td>
 
-                    <i class="fas fa-eye fa-sm fa-fw"></i>
+                    <a href="{{route('admin.songs.show', $song->slug)}}">
+                        <i class="fas fa-eye fa-sm fa-fw"></i>
+                    </a>
                     <i class="fas fa-pencil fa-sm fa-fw"></i>
                     <i class="fas fa-trash fa-sm fa-fw"></i>
 
