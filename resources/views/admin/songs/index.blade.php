@@ -30,11 +30,15 @@
                 <td>{{$song->album}}</td>
                 <td>{{$song->artist}}</td>
                 <td>
-
+                    <!-- show -->
                     <a href="{{route('admin.songs.show', $song->slug)}}">
                         <i class="fas fa-eye fa-sm fa-fw"></i>
                     </a>
-                    <i class="fas fa-pencil fa-sm fa-fw"></i>
+                    <!-- edit -->
+                    <a href="{{route('admin.songs.edit', $song->slug)}}">
+                        <i class="fas fa-pencil fa-sm fa-fw"></i>
+                    </a>
+                    <!-- delete -->
                     <i class="fas fa-trash fa-sm fa-fw"></i>
 
                 </td>
