@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSongRequest;
 use App\Http\Requests\UpdateSongRequest;
 use App\Models\Song;
+use illuminate\Support\Str;
 
 class SongController extends Controller
 {
@@ -15,7 +17,8 @@ class SongController extends Controller
      */
     public function index()
     {
-        $song = Song::orderByDesc('id')->get();
+        $song = Song::orderBy('id')->get();
+        // $song = Song::orderByCres('id')->get();
         // dd($song);
         return view('admin.songs.index', compact('song'));
     }
@@ -27,7 +30,7 @@ class SongController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.songs.create');
     }
 
     /**
@@ -38,7 +41,23 @@ class SongController extends Controller
      */
     public function store(StoreSongRequest $request)
     {
-        //
+        // dd($request->all());
+        //validazione dati
+        $val_data = $request->validated();
+        // dd($val_data);
+
+        //generate song slug
+        // $song_slug = Str::slug($val_data['title']);
+        // dd($song_slug);
+
+        $song_slug = Song::generateSlag($val_data['title']);
+        // dd($song_slug);
+        $val_data['slug'] = $song_slug;
+        //add song
+        // dd($val_data);
+        Song::create($val_data);
+        //redirect
+        return to_route('admin.songs.index')->with('message', 'You add a great Song!');
     }
 
     /**

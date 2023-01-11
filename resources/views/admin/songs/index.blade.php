@@ -1,3 +1,10 @@
+@extends('layouts.app')
+@section('content')
+<h1>Songs</h1>
+<a name="" id="" class="btn btn-primary position-fixed bottom-0 end-0 m-3" href="{{route('admin.songs.create')}}" role="button">New Song
+    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+</a>
+
 <div class="table-responsive">
     <table class="table table-striped
     table-hover	
@@ -23,6 +30,7 @@
                 <td>{{$song->album}}</td>
                 <td>{{$song->artist}}</td>
                 <td>
+
                     <i class="fas fa-eye fa-sm fa-fw"></i>
                     <i class="fas fa-pencil fa-sm fa-fw"></i>
                     <i class="fas fa-trash fa-sm fa-fw"></i>
@@ -44,3 +52,4 @@
         </tfoot>
     </table>
 </div>
+@endsection

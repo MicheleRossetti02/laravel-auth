@@ -28,7 +28,7 @@
         </div>
     </div>
     <main>
-        @yield('table')
+        @yield('content')
     </main>
 </body>
 

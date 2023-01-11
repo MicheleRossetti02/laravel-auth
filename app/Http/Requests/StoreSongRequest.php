@@ -13,7 +13,7 @@ class StoreSongRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class StoreSongRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required:posts,title|max:100',
+            'artist' => 'nullable',
+            'album' => 'nullable'
         ];
     }
 }
