@@ -13,7 +13,7 @@ class UpdateSongRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class UpdateSongRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required:posts,title|max:100',
+            'description' => 'nullable|max:400',
+            'language' => 'nullable'
         ];
     }
 }

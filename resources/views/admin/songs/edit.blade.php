@@ -5,7 +5,7 @@
 <section class="py-5">
 
     <div class="container">
-        <form action="{{route('admin.songs.update',$song->id)}}" method="post" class="card p-3">
+        <form action="{{route('admin.songs.update',$song->slug)}}" method="post" class="card p-3">
             @csrf
             @method('PUT')
 

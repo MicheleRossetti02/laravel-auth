@@ -4,6 +4,7 @@
 <a name="" id="" class="btn btn-primary position-fixed bottom-0 end-0 m-3" href="{{route('admin.songs.create')}}" role="button">New Song
     <i class="fa fa-plus-circle" aria-hidden="true"></i>
 </a>
+@include('partials.message')
 
 <div class="table-responsive">
     <table class="table table-striped
@@ -12,7 +13,7 @@
     table-primary
     align-middle">
         <thead class="table-light">
-            <caption></caption>
+
             <tr>
                 <th>ID</th>
                 <th>Title </th>

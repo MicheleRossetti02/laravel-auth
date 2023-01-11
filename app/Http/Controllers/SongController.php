@@ -80,8 +80,6 @@ class SongController extends Controller
     public function edit(Song $song)
     {
         return view('admin.songs.edit', compact('song'));
-
-        return to_route('admin.songs.index')->with('message', 'You edit a great Song!');
     }
 
     /**
@@ -93,7 +91,9 @@ class SongController extends Controller
      */
     public function update(UpdateSongRequest $request, Song $song)
     {
-        //
+        $val_data = $request->validated();
+        $song->update($val_data);
+        return to_route('admin.songs.index')->with('message', 'You edit a great Song!');
     }
 
     /**
