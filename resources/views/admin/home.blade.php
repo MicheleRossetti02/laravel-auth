@@ -86,29 +86,7 @@
             </div>
         </nav>
 
-        <div class="container-fluid">
-            <div class="row">
-                <nav class="col-md-3 d-nd-block bg-light sidebarr shadow">
-                    <div class="position-sticky pt-3 sidebar-sticky">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a href="" class="nav-link active">
-                                    <span class="align-text-bottom"></span>
-                                    <i class="fas fa-tachometer-alt fa-sn fa-fw"></i>Dashboard
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link active">
-                                    <span class="align-text-bottom"></span>
-                                    <i class="fa-solid fa-music"></i>
-                                    Music
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
+        @include('partials.leftmenu')
     </div>
 </body>
 
