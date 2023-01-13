@@ -16,6 +16,7 @@
 
             <tr>
                 <th>ID</th>
+                <th>Cover</th>
                 <th>Title </th>
                 <th>Album</th>
                 <th>Artist</th>
@@ -27,6 +28,13 @@
             @forelse($song as $song)
             <tr class="table-primary">
                 <td scope="row">{{$song->id}}</td>
+                <td scope="row">
+
+                    @if($song->cover)
+                    <img src="{{asset('storage/' . $song->cover )}}" alt="">
+                    @endif
+                </td>
+
                 <td>{{$song->title}}</td>
                 <td>{{$song->album}}</td>
                 <td>{{$song->artist}}</td>

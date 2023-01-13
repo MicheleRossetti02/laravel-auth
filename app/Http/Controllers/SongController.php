@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSongRequest;
 use App\Http\Requests\UpdateSongRequest;
 use App\Models\Song;
+use Illuminate\Support\Facades\Storage;
 use illuminate\Support\Str;
 
 class SongController extends Controller
@@ -54,6 +55,12 @@ class SongController extends Controller
         // dd($song_slug);
         $val_data['slug'] = $song_slug;
         //add song
+        // dd($val_data);
+        // dd($val_data);
+
+        $cover = Storage::disk('public')->put('songs_img', $request->cover);
+        $val_data['cover'] = $cover;
+
         // dd($val_data);
 
         Song::create($val_data);
@@ -107,6 +114,7 @@ class SongController extends Controller
         //add song
         // dd($val_data);
 
+        // dd($val_data->all());
 
         $song->update($val_data);
         return to_route('admin.songs.index')->with('message', 'You edit a great Song!');

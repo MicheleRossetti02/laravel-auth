@@ -25,6 +25,7 @@ class StoreSongRequest extends FormRequest
     {
         return [
             'title' => 'required:posts,title|max:100',
+            'cover' => 'nullable|image|max:500',
             'artist' => 'nullable',
             'album' => 'nullable'
         ];

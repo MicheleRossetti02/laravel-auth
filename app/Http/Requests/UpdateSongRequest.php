@@ -24,9 +24,10 @@ class UpdateSongRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required:posts,title|max:100',
-            'description' => 'nullable|max:400',
-            'language' => 'nullable'
+            'title' => 'required:title|max:100',
+            'cover' => 'nullable|image|max:500',
+            'album' => 'nullable|max:400',
+            'artist' => 'nullable'
         ];
     }
 }
